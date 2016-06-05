@@ -1,0 +1,5 @@
+z-index=2
+align=0
+name=Tents
+max=Tente-R1.png:1;Tente-R2.png:1;Tente-R3.png:1;Tente-R4.png:1;Tente-R5.png:1;Tente-R6.png:1;Tente-Rb1.png:1;Tente-Rb2.png:1;Tente-Rb3.png:1;Tente-V.png:11;Tente-Rb5.png:1;Tente-Rb6.png:1
+pairs=Tente-R1.png:Tente-V.png;Tente-R2.png:Tente-V.png;Tente-R3.png:Tente-V.png;Tente-R4.png:Tente-V.png;Tente-R5.png:Tente-V.png;Tente-R6.png:Tente-V.png;Tente-Rb1.png:Tente-V.png;Tente-Rb2.png:Tente-V.png;Tente-Rb3.png:Tente-V.png;Tente-Rb5.png:Tente-V.png;Tente-Rb6.png:Tente-V.png

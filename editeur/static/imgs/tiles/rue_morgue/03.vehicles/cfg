@@ -1,0 +1,6 @@
+z-index=3
+rotate=45
+align=0
+name=Vehicles
+pairs=Helicopter-Crashed.png:Helicopter.png
+max=Helicopter-Crashed.png:1;Helicopter.png:1

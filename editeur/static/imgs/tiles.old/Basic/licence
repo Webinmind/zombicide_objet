@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<licence>
+	<game>Générique</game>
+	<name>Basic</name>
+	<version>0.1</version>
+	<creator>Nicolas Mazziotta</creator>
+	<copyright owner="Nicolas Mazziotta">
+		<text lang="fr">Cette création est mise à disposition selon le Contrat Paternité-NonCommercial-ShareAlike 2.0 Belgium disponible en ligne	http://creativecommons.org/licenses/by-nc-sa/2.0/be/ ou par courrier postal à Creative Commons, 559 Nathan Abbott Way, Stanford, California	94305, USA.</text>
+	</copyright>
+</licence>

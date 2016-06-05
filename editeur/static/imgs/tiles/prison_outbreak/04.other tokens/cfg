@@ -1,0 +1,5 @@
+z-index=3
+align=0
+name=Other Tokens
+max=Noise Token.png:18;objective token blue.jpg:1;objective token green.JPG:1;objective token red.JPG:13;spawn token blue.jpg:1;spawn token.jpg:5;start token.jpg:1;exit token.jpg:1;Objective-Violet.png:1;Objective-White.png:1;Objective-Yellow.png:1;Observation Tower-Recto.png:2;Observation Tower-Verso.png:2;Switch-Violet.png:1;Switch-White.png:1;Switch-Yellow.png:1;Torn-Barbwire.png:2;Spawn-Green.png:1;Spawn-Violet.png:1;Spawn-White.png:1;Spawn-Yellow.png:1;spawn token blue.jpg:1;spawn token.jpg:6
+pairs=objective token blue.jpg:objective token red.JPG;objective token green.JPG:objective token red.JPG;Objective-Violet.png:objective token red.JPG;Objective-White.png:objective token red.JPG;Objective-Yellow.png:objective token red.JPG;Spawn-Green.png:spawn token.jpg;Spawn-Violet.png:spawn token.jpg;Spawn-White.png:spawn token.jpg;Spawn-Yellow.png:spawn token.jpg;spawn token blue.jpg:spawn token.jpg;Observation Tower-Recto.png:Observation Tower-Verso.png

@@ -1,0 +1,38 @@
+{% load static %}
+{% load staticfiles %}
+
+<div class="modal fade modal-tiles-season_one">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Choisissez les Tiles</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled list-inline">
+          {% for tiles in season_one_tiles %}
+              <li class="btn-group btn-group-tile btn-group_{{tile.parent}}" data-toggle="buttons-radio" role="group" aria-label="...">
+              {% for tile in tiles %}
+                <button type="button" class="btn btn-default btn_tile" id="{{tile.name}}">
+                  <h4>{{tile.name}}</h4>
+                  <div class="tile recto text-center" data-parent="{{tile.parent}}" id="{{tile.name}}">
+                    <div class="controls">
+                      <div class="control rotate rotate_{{tile.name}} text-center"><i class="fa fa-rotate-right"></i></div>
+                      <!-- <div class="control handle handle_{{tile.recto.name}} text-center"><i class="fa fa-hand-rock-o"></i></div> -->
+                      <div class="control lock lock_{{tile.name}} text-center"></div>
+                    </div>
+                    <img id="img_{{tile.name}}" src="{% static 'imgs/tiles/' %}{{tile.season}}{% static '/tiles/' %}{{tile.picture}}.png" class="thumb" />
+                  </div>
+                </button>
+              {% endfor %}
+              </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-add-tiles" data-dismiss="modal">Ajouter</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div>

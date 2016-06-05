@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="home">
+  <div class="col-xs-4 text-center">
+    <h3>Créez une nouvelle mission</h3>
+    <a class="btn btn-success" href="{% url 'newmission' %}">Nouvelle mission</a>
+  </div>
+  <div class="col-xs-4 text-center">
+    <h3>Éditez une mission</h3>
+    <ul class="list-group list-unstyled">
+      {% for mission in missions %}
+      <li class="list-group-item"><a href="{% url 'mission' mission.pk %}">{{mission.name}}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="col-xs-4 text-center">
+    <h3>Exportez une mission</h3>
+    <ul class="list-group list-unstyled">
+      {% for mission in missions %}
+      <li class="list-group-item">
+        <div class="row">
+          <h4 class="col-xs-4">{{mission.name}}</h4>
+          <a class="btn btn-default col-xs-offset-1 col-xs-4" href="">Exportez en pdf</a>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

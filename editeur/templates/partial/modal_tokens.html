@@ -1,0 +1,83 @@
+{% load static %}
+<div class="modal fade modal-tokens-season_one">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Choisissez les Tokens</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-lg-6">
+                <h4>tokens</h4>
+                <ul class="list-unstyled list-inline list-objectifs">
+                  <li class="btn-group btn-group-sm btn-group-objectifs" data-toggle="buttons-checkbox" role="group" aria-label="...">
+                    {% for objectif in season_one_objectives %}
+                    <button type="button" class="btn btn-default btn-sm btn_objectif" id="token_{{objectif.name}}" data-id="{{objectif.name}}">
+                      <div class="objectif token handle text-center" id="{{objectif.name}}" data-type="objective" data-id="{{objectif.name}}">
+                        <img id="img_{{objectif.name}}" src="{% static 'imgs/tiles/' %}{{objectif.season}}{% static '/objectives/' %}{{objectif.picture}}.png" class="thumb handle" />
+                      </div>
+                      <input type="number" min="1" step="1" class="token_number objective_number" data-id="{{objectif.name}}" data-type="objective" value="" placeholder="combien ?" />
+                    </button>
+                    {% endfor %}
+                  </li>
+                </ul>
+              </div>   
+              <div class="col-lg-6">
+                <h4>Pions Généraux</h4>
+                <ul class="list-unstyled list-inline list-tokens">
+                  <li class="btn-group btn-group-sm btn-group-tokens" data-toggle="buttons-checkbox" role="group" aria-label="...">
+                    {% for token in season_one_exit %}
+                    <button type="button" class="btn btn-default btn-sm btn_exit" id="token_{{token.name}}" data-id="{{token.name}}">
+                      <div class="token exit {{token.type}} handle text-center" id="{{token.name}}" data-type="exit" data-id="{{token.name}}">
+                        <img id="img_{{token.name}}" src="{% static 'imgs/tiles/' %}{{token.season}}/{{token.type}}/{{token.picture}}.png" class="thumb handle" />
+                      </div>
+                      <input type="number" min="1" step="1" class="token_number exit_number" data-id="{{token.name}}" data-type="exit" value="" placeholder="combien ?" />
+                    </button>
+                    {% endfor %}
+                    {% for token in season_one_noise %}
+                    <button type="button" class="btn btn-default btn-sm btn_noise" id="token_{{token.name}}" data-id="{{token.name}}">
+                      <div class="token noise {{token.type}} handle text-center" id="{{token.name}}" data-type="noise" data-id="{{token.name}}">
+                        <img id="img_{{token.name}}" src="{% static 'imgs/tiles/' %}{{token.season}}/{{token.type}}/{{token.picture}}.png" class="thumb handle" />
+                      </div>
+                      <input type="number" min="1" step="1" class="token_number noise_number" data-id="{{token.name}}" data-type="noise" value="" placeholder="combien ?" />
+                    </button>
+                    {% endfor %}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h4>Portes</h4>
+            <ul class="list-unstyled list-inline list-portes">
+              {% for doors in season_one_doors %}
+              <li class="btn-group btn-group-sm btn-group-door" data-toggle="buttons-checkbox" role="group" aria-label="...">
+                {% for door in doors %}
+                  <button type="button" class="btn btn-default btn-sm btn_door btn_{{door.state}}_door" id="token_{{door.state}}_{{door.name}}" data-id="{{door.state}}_{{door.name}}">
+                    <div class="door {{door.state}}d token text-center" id="{{door.state}}_{{door.name}}" data-type="door" data-state="{{door.state}}" data-id="{{door.state}}_{{door.name}}">
+                      <div class="controls">
+                        <div class="control rotate rotate_{{door.name}} text-center"><i class="fa fa-rotate-right"></i></div>
+                        <!-- <div class="control handle handle_{{door.close.name}} text-center"><i class="fa fa-hand-rock-o"></i></div> -->
+                        <div class="control lock lock_{{door.name}} text-center"></div>
+                      </div>
+                      <img id="img_{{door.name}}" src="{% static 'imgs/tiles/' %}{{door.season}}{% static '/doors/' %}{{door.picture}}.png" class="thumb" />
+                    </div>
+                    <input type="number" min="1" step="1" class="token_number door_number" data-id="{{door.name}}" data-type="door" value="" placeholder="combien ?" />
+                  </button>
+                {% endfor %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-add-tokens" data-dismiss="modal">Ajouter</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div>

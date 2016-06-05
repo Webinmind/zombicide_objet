@@ -1,0 +1,122 @@
+{% load staticfiles %}
+{% load activeurl %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}Zombicide{% endblock title %}</title>
+  <link rel="stylesheet" type="text/css" href="{% static "bootstrap/bootstrap.css" %}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet/less" type="text/css" href="{% static "less/zombicide.less" %}" />
+  
+
+  
+  <!--[if IE 8]>
+  <link rel="stylesheet" href="{% static "ie8.css" %}" />
+  <![endif]-->
+
+  
+  {% for static_file in static_files %}
+  <!-- <script src="/static/{{static_file}}"></script> -->
+  {%endfor%}
+  <style type="text/css">
+  {% block styleextra %}
+
+  {% endblock %}
+  </style>
+
+  {% block headextra %}
+  {% endblock %}
+</head>
+
+<body>
+  {% csrf_token %}
+  <div class="container-fluid header-container">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'index' %}">Zombicide - Éditeur de Mission</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          {% activeurl %}
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'newmission' %}">Nouvelle mission</a></li>
+            {% if missions %}
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Édition <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                {% for mission in missions %}
+                <li><a class="mission-list-item-{{mission.pk}}" href="{% url 'mission' mission.pk %}">{{mission.name}}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% endif %}
+          </ul>
+          {% endactiveurl %}
+          {% block tools %}
+          {% endblock %}
+          {% activeurl %}
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="">Help</a></li>
+          </ul>
+          {% endactiveurl %}
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    {% block infos %}
+    {% endblock %}
+  </div>
+  <div class="container-fluid main-content">
+    <div class="row">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+  
+  {% block modal %}
+    {% include "partial/modal_tiles.html" %}
+    {% include "partial/modal_tokens.html" %}
+    {% include "partial/modal_spawns.html" %}
+    {% include "partial/modal_cars.html" %}
+  {% endblock %}
+  
+  <script src="{% static "libs/jquery-1.11.3.min.js" %}"></script>
+  <script src="{% static "bootstrap/bootstrap.js" %}"></script>
+  <script>
+  less = {
+    env: "development",
+    async: true,
+    fileAsync: false,
+    poll: 1000,
+    functions: {},
+    dumpLineNumbers: "comments",
+    relativeUrls: false,
+    rootpath: ":/127.0.0.0.1:8000/"
+  };
+  </script>
+  <script src="{% static "libs/underscore-min.js" %}"></script>
+  <script src="{% static "libs/jquery-ui/jquery-ui.js" %}"></script>
+  <script src="{% static 'libs/less.js' %}"></script>
+  <script src="{% static 'tsfactory/factory.main.js' %}"></script>
+  
+  <!-- <script src="{% static 'libs/zombicide_functions.js' %}"></script>
+  <script src="{% static 'libs/zombicide.js' %}"></script> -->
+  
+  
+
+  {% block extrajs %}
+  {% endblock %}
+</body>
+</html>

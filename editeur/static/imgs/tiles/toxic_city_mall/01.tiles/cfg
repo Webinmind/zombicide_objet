@@ -1,0 +1,3 @@
+name=Tiles
+pairs=A1M8M.png:A8M1M.png;B2M7M.png:B7M2M.png;C3M6M.png:C6M3M.png;D4M5M.png:D5M4M.png
+max=A1M8M.png:1;A8M1M.png:1;B2M7M.png:1;B7M2M.png:1;C3M6M.png:1;C6M3M.png:1;D4M5M.png:1;D5M4M.png:1

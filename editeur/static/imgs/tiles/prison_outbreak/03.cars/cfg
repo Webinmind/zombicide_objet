@@ -1,0 +1,6 @@
+z-index=3
+rotate=45
+align=0
+name=Cars
+pairs=pimp mobile token-b.jpg:Taxi-b.png;pimp mobile token.jpg:Muscle-Car.png;police car token.jpg:Taxi.png;Hippiemobile.png:police car token-b.jpg
+max=pimp mobile token.jpg:1;pimp mobile token-b.jpg:1;police car token-b.jpg:1;police car token.jpg:1;Taxi.png:1;Taxi-b.png:1;Muscle-Car.png:1;Hippiemobile.png:1

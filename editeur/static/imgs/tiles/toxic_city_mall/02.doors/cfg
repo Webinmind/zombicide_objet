@@ -1,0 +1,5 @@
+z-index=3
+align=0
+name=Doors
+max=Mall-Door-Closed.png:16;Mall-Door-Open.png:16;Mall-Double-Door-Blue-Closed.png:1;Mall-Double-Door-Blue-Open.png:1;Mall-Double-Door-Standard-Closed.png:4;Mall-Double-Door-Standard-Open.png:4
+pairs=Mall-Door-Closed.png:Mall-Door-Open.png;Mall-Double-Door-Blue-Closed.png:Mall-Double-Door-Blue-Open.png;Mall-Double-Door-Standard-Closed.png:Mall-Double-Door-Standard-Open.png

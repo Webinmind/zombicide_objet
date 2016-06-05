@@ -1,0 +1,5 @@
+ALGO
+
+Objet MISSION :
+    nom : String
+    

@@ -1,0 +1,5 @@
+z-index=3
+align=0
+name=Other Tokens
+max=HELI-STAIRS.png:1;EVENT-TRIG-OFF.png:6;EVENT-TRIG-ON.png:6;exit token.jpg:1;Locator-1.png:1;Locator-2.png:1;Locator-3.png:1;Locator-4.png:1;Locator-5.png:1;Locator-6.png:1;Noise Token.png:24;objective-Pink.png:1;objective token blue.jpg:1;objective token red.JPG:10;spawn-Pink.png:1;spawn token blue.jpg:1;spawn token.jpg:6;start token.jpg:1
+pairs=EVENT-TRIG-OFF.png:EVENT-TRIG-ON.png;objective-Pink.png:objective token red.JPG;objective token blue.jpg:objective token red.JPG;spawn-Pink.png:spawn token.jpg;spawn token blue.jpg:spawn token.jpg

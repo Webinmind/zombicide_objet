@@ -1,0 +1,5 @@
+z-index=3
+align=0
+name=Other Tokens
+max=Barricade-complete.png:4;Barricade-incomplete.png:4;Rubble-large-flame.png:2;Rubble-large.png:2;Rubble-small-flame.png:4;Rubble-small.png:4;Zomb-Spawn-Green.png:1;Zomb-Spawn-Violet.png:1;Zomb-Spawn-White.png:1;Zomb-Spawn-Yellow.png:1;spawn token.jpg:4
+pairs=Barricade-complete.png:Barricade-incomplete.png;Rubble-large-flame.png:Rubble-large.png;Rubble-small-flame.png:Rubble-small.png;spawn token.jpg:Zomb-Spawn-Green.png;spawn token.jpg:Zomb-Spawn-Violet.png;spawn token.jpg:Zomb-Spawn-White.png;spawn token.jpg:Zomb-Spawn-Yellow.png

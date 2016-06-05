@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block tools %}
+<ul class="nav navbar-nav navbar-tools">
+  <li role="presentation">
+    <a class="dropdown-toggle" id="dropdownTiles" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Tiles
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownTiles">
+      <li><a data-toggle="modal" data-target=".modal-tiles-season_one">Season One</a></li>
+      <li><a data-toggle="modal" data-target=".modal-tiles-angry_neighbors">Angry Neighbors</a></li>
+      <li><a data-toggle="modal" data-target=".modal-tiles-prison_outbreak">Prison Outbreak</a></li>
+    </ul>
+  </li>
+  <li role="presentation">
+    <a class="dropdown-toggle" id="dropdownTokens" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Pions
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownTokens">
+      <li><a data-toggle="modal" data-target=".modal-tokens-season_one">Season One</a></li>
+      <li><a data-toggle="modal" data-target=".modal-tokens-angry_neighbors">Angry Neighbors</a></li>
+      <li><a data-toggle="modal" data-target=".modal-tokens-prison_outbreak">Prison Outbreak</a></li>
+    </ul>
+  </li>
+  <li role="presentation">
+    <a class="dropdown-toggle" id="dropdownSpawns" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Invasion
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownSpawns">
+      <li><a data-toggle="modal" data-target=".modal-spawns-season_one">Season One</a></li>
+      <li><a data-toggle="modal" data-target=".modal-spawns-angry_neighbors">Angry Neighbors</a></li>
+      <li><a data-toggle="modal" data-target=".modal-spawns-prison_outbreak">Prison Outbreak</a></li>
+    </ul>
+  </li>
+  <li role="presentation">
+    <a class="dropdown-toggle" id="dropdownCars" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Voitures
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownCars">
+      <li><a data-toggle="modal" data-target=".modal-cars-season_one">Season One</a></li>
+      <li><a data-toggle="modal" data-target=".modal-cars-angry_neighbors">Angry Neighbors</a></li>
+      <li><a data-toggle="modal" data-target=".modal-cars-prison_outbreak">Prison Outbreak</a></li>
+    </ul>
+  </li>
+  <li role="presentation">
+    <a class="exporttopdf" href="">Pdf</a>
+  </li>
+</ul>
+<form class="navbar-form navbar-left" role="save">
+  <div class="form-group">
+    <input type="text" class="form-control mission_name" placeholder="Nom dela mission" value="{{mission.name}}" /> 
+  </div>
+  <span class="btn btn-default save-mission">Enregistrer</span>
+</form>
+{% endblock %}
+
+{% block infos %}
+<div class="objects_in_use">
+  <p class="col-lg-3 col-md-3 col-sm-3 col-xs-3 tiles_used">
+    <b>Tiles in use :</b> 
+    {% for tile in dropped_tiles %}
+      <span class="tile_in_use {{tile.name}}" data-parent="{{tile.parent}}" data-id="{{tile.name}}" data-top="{{tile.top}}" data-left="{{tile.left}}" data-angle="{{tile.angle}}">{{tile.name}}</span>
+    {% endfor %}    
+  </p>
+  <p class="col-lg-3 col-md-3 col-sm-3 col-xs-3 doors_used">
+    <b>Doors in use :</b> 
+    {% for door in dropped_doors %}
+      <span class="door_in_use token_in_use {{door.name}}" id="{{door.name}}" data-id="{{door.ref}}" data-type="door" data-top="{{door.top}}" data-left="{{door.left}}" data-angle="{{door.angle}}" data-state="{{door.state}}">{{door.name}}</span>
+    {% endfor %}    
+  </p>
+  <p class="col-lg-3 col-md-3 col-sm-3 col-xs-3 objectives_used">
+    <b>Objectives in use :</b> 
+    {% for objective in dropped_objectives %}
+      <span class="objective_in_use token_in_use {{objective.name}}" id="{{objective.name}}" data-id="{{objective.ref}}" data-type="objective" data-top="{{objective.top}}" data-left="{{objective.left}}" data-angle="{{objective.angle}}">{{objective.name}}</span>
+    {% endfor %}    
+  </p>
+  <p class="col-lg-3 col-md-3 col-sm-3 col-xs-3 spawns_used">
+    <b>Spawns in use :</b>
+    {% for spawn in dropped_spawns %}
+      <span class="spawn_in_use token_in_use {{spawn.name}}" id="{{spawn.name}}" data-id="{{spawn.ref}}" data-type="spawn" data-top="{{spawn.top}}" data-left="{{spawn.left}}" data-angle="{{spawn.angle}}">{{spawn.name}}</span>
+    {% endfor %}    
+  </p>
+  <p class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cars_used">
+    <b>Cars in use :</b>
+    {% for car in dropped_cars %}
+      <span class="car_in_use token_in_use {{car.name}}" id="{{car.name}}" data-id="{{car.ref}}" data-type="car" data-top="{{car.top}}" data-left="{{car.left}}" data-angle="{{car.angle}}">{{car.name}}</span>
+    {% endfor %}    
+  </p>
+  <p class="col-lg-3 col-md-3 col-sm-3 col-xs-3 noises_used">
+    <b>Noises in use :</b>
+    {% for token in dropped_noises %}
+      <span class="noise_in_use token_in_use {{token.name}}" id="{{token.name}}" data-id="{{token.ref}}" data-type="noise" data-top="{{token.top}}" data-left="{{token.left}}" data-angle="{{token.angle}}">{{token.name}}</span>
+    {% endfor %}    
+  </p>
+    <p class="col-lg-3 col-md-3 col-sm-3 col-xs-3 exits_used">
+    <b>Exits in use :</b>
+    {% for token in dropped_exits %}
+      <span class="exit_in_use token_in_use {{token.name}}" id="{{token.name}}" data-id="{{token.ref}}" data-type="exit" data-top="{{token.top}}" data-left="{{token.left}}" data-angle="{{token.angle}}">{{token.name}}</span>
+    {% endfor %}    
+  </p>
+</div>
+<div class="mission_number" data-id="{{mission.pk}}"></div>
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dropzone-container">
+  <div id="dropzone" class="snappable"></div>
+</div>
+<div id="number_of_tokens_in_use">
+  <div id="number_of_objectives_in_use">
+    {% for obj_in_use in objectives_in_use %}
+    <span class="nb_of_obj_in_use {{obj_in_use.ref}}" data-id="{{obj_in_use.ref}}" data-number="{{obj_in_use.total}}"></span>
+    {% endfor %}
+  </div>
+  <div id="number_of_doors_in_use">
+    {% for door_in_use in doors_in_use %}
+    <span class="nb_of_door_in_use {{door_in_use.ref}}" data-id="{{door_in_use.ref}}" data-number="{{door_in_use.total}}"></span>
+    {% endfor %}
+  </div>
+  <div id="number_of_spawns_in_use">
+    {% for spawn_in_use in spawns_in_use %}
+    <span class="nb_of_spawn_in_use {{spawn_in_use.ref}}" data-id="{{spawn_in_use.ref}}" data-number="{{spawn_in_use.total}}"></span>
+    {% endfor %}
+  </div>
+  <div id="number_of_cars_in_use">
+    {% for car_in_use in cars_in_use %}
+    <span class="nb_of_car_in_use {{car_in_use.ref}}" data-id="{{car_in_use.ref}}" data-number="{{car_in_use.total}}"></span>
+    {% endfor %}
+  </div>
+  <div id="number_of_noises_in_use">
+    {% for token_in_use in noises_in_use %}
+    <span class="nb_of_noise_in_use" data-id="{{token_in_use.ref}}" data-number="{{token_in_use.total}}"></span>
+    {% endfor %}
+  </div>
+  <div id="number_of_exits_in_use">
+    {% for token_in_use in exits_in_use %}
+    <span class="nb_of_exit_in_use" data-id="{{token_in_use.ref}}" data-number="{{token_in_use.total}}"></span>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+  <script src="{% static 'libs/mission.js' %}"></script>
+  <script type="text/javascript">
+  $('.mission_name').val("{{mission.name}}");
+  var dropped_tiles_json = "{{dropped_tiles_json|escapejs}}"
+  var dropped_doors_json = "{{dropped_doors_json|escapejs}}"
+  var dropped_objectives_json = "{{dropped_objectives_json|escapejs}}"
+  var dropped_spawns_json = "{{dropped_spawns_json|escapejs}}"
+  var dropped_cars_json = "{{dropped_cars_json|escapejs}}"
+  var dropped_noises_json = "{{dropped_noises_json|escapejs}}"
+  var dropped_exits_json = "{{dropped_exits_json|escapejs}}"
+
+  // var objectives_in_use = "{{objectives_in_use|escapejs}}"
+  var objectives_in_use = "{{number_objectives|escapejs}}"
+  var doors_in_use = "{{number_doors|escapejs}}"
+  var cars_in_use = "{{number_cars|escapejs}}"
+  var noises_in_use = "{{number_noises|escapejs}}"
+  var exits_in_use = "{{number_exits|escapejs}}"
+  var spawns_in_use = "{{number_spawns|escapejs}}"
+  </script>
+{% endblock %}
