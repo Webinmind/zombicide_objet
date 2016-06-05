@@ -106,14 +106,27 @@
     rootpath: ":/127.0.0.0.1:8000/"
   };
   </script>
+  <!-- <script src="{% static 'libs/systemjs-master/dist/system.js' %}"></script>  -->
+    
+  <!-- <script src="{% static "libs/requirejs.js" %}"></script> -->
   <script src="{% static "libs/underscore-min.js" %}"></script>
   <script src="{% static "libs/jquery-ui/jquery-ui.js" %}"></script>
   <script src="{% static 'libs/less.js' %}"></script>
-  <script src="{% static 'tsfactory/factory.main.js' %}"></script>
   
   <!-- <script src="{% static 'libs/zombicide_functions.js' %}"></script>
   <script src="{% static 'libs/zombicide.js' %}"></script> -->
-  
+  <script>
+  // System.import("{% static 'tsfactory/factory.main.js' %}"); 
+  // set our baseURL reference path
+  // System.config({
+  //   baseURL: '/',
+  //   transpiler: 'typescript'
+  // });
+
+  // // loads /app/main.js
+  // System.import("{% static 'tsfactory/factory.main.js' %}");
+  </script>
+  <script src="{% static 'tsfactory/factory.main.js' %}"></script>
   
 
   {% block extrajs %}
